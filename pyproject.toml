@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "toml"]
+requires = ["setuptools<81", "toml"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -36,7 +36,11 @@ override-dependencies = [
     "filelock==3.13.1",
     "fsspec==2024.6.1",
     "networkx==3.3",
+    "pywin32==306 ; sys_platform == 'win32'",
 ]
+
+[tool.uv.extra-build-dependencies]
+flatdict = ["setuptools==80.9.0"]
 
 [tool.uv.sources]
 legged-lab = { path = "source/legged_lab", editable = true }
@@ -44,6 +48,33 @@ rsl-rl-lib = { path = "rsl_rl", editable = true }
 torch = { index = "pytorch-cu128" }
 torchvision = { index = "pytorch-cu128" }
 torchaudio = { index = "pytorch-cu128" }
+isaaclab = { index = "nvidia" }
+isaacsim = { index = "nvidia" }
+isaacsim-app = { index = "nvidia" }
+isaacsim-asset = { index = "nvidia" }
+isaacsim-benchmark = { index = "nvidia" }
+isaacsim-code-editor = { index = "nvidia" }
+isaacsim-core = { index = "nvidia" }
+isaacsim-cortex = { index = "nvidia" }
+isaacsim-example = { index = "nvidia" }
+isaacsim-extscache-kit = { index = "nvidia" }
+isaacsim-extscache-kit-sdk = { index = "nvidia" }
+isaacsim-extscache-physics = { index = "nvidia" }
+isaacsim-gui = { index = "nvidia" }
+isaacsim-kernel = { index = "nvidia" }
+isaacsim-replicator = { index = "nvidia" }
+isaacsim-rl = { index = "nvidia" }
+isaacsim-robot = { index = "nvidia" }
+isaacsim-robot-motion = { index = "nvidia" }
+isaacsim-robot-setup = { index = "nvidia" }
+isaacsim-ros1 = { index = "nvidia" }
+isaacsim-ros2 = { index = "nvidia" }
+isaacsim-sensor = { index = "nvidia" }
+isaacsim-storage = { index = "nvidia" }
+isaacsim-template = { index = "nvidia" }
+isaacsim-test = { index = "nvidia" }
+isaacsim-utils = { index = "nvidia" }
+warp-lang = { index = "nvidia" }
 
 [[tool.uv.index]]
 name = "pytorch-cu128"
@@ -53,6 +84,7 @@ explicit = true
 [[tool.uv.index]]
 name = "nvidia"
 url = "https://pypi.nvidia.com"
+explicit = true
 
 [tool.isort]
 
